@@ -3,7 +3,7 @@ class uart_driver extends uvm_driver#(uart_xtn);
 	//Factory Registration
 	`uvm_component_utils(uart_driver)
 
-	virtual uart_if.DR_MP vif;
+	virtual uart_if vif;
 
 	uart_agent_config agt_cfg;
 
@@ -94,6 +94,10 @@ endtask
 task uart_driver::reset_dut();
 #5;
 vif.wb_rst_i <= 1;
+vif.wb_we_i  <= 0;
+vif.wb_stb_i <= 0;
+vif.wb_cyc_i <= 0;
+vif.wb_adr_i <= 0;
 #15;
 vif.wb_rst_i <= 0;
 endtask:reset_dut
