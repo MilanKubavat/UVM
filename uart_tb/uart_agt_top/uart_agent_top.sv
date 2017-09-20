@@ -4,7 +4,7 @@ class uart_agent_top extends uvm_agent;
 	`uvm_component_utils(uart_agent_top)
 
 	//Write Agent Handle Array
-	uart_agent agt[];
+	uart_agent agent[];
 
 	//Env Config
 	uart_env_config env_cfg;
@@ -31,11 +31,11 @@ function void uart_agent_top::build_phase(uvm_phase phase);
 	
 	if(env_cfg.has_agent)
 	begin
-		agt = new[env_cfg.no_of_agt];
-		foreach(agt[i])
+		agent = new[env_cfg.no_of_agt];
+		foreach(agent[i])
 		begin
-			agt[i] = uart_agent::type_id::create($sformatf("agt[%0d]", i), this);
-			uvm_config_db#(uart_agent_config)::set(this, $sformatf("*agt[%0d]*", i), "uart_agent_config", env_cfg.agt_cfg[i]);
+			agent[i] = uart_agent::type_id::create($sformatf("agent[%0d]", i), this);
+			uvm_config_db#(uart_agent_config)::set(this, $sformatf("*agent[%0d]*", i), "uart_agent_config", env_cfg.agt_cfg[i]);
 		end
 	end
 	
