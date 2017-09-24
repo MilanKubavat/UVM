@@ -1,0 +1,12 @@
+uart_test_txrx
+uart_test_rxtx       
+uart1_parity_error_test
+uart2_parity_error_test
+char_7bit_test
+char_6bit_test
+char_5bit_test
+timeout_uart1_test
+timeout_uart2_test
+framing_error_uart1_test
+framing_error_uart2_test
+overrun_uart1_test

@@ -1,3 +1,6 @@
 uart_rtl
 sim/*
 !sim/Makefile
+!sim/run.pl
+!sim/uart_inc.f
+!sim/testcases.txt
